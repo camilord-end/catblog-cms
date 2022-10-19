@@ -9,4 +9,4 @@ module.exports =  {
       'media.graphassets.com',
     ],
   },
-} // eslint-disable-line
+} 
