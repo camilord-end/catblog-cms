@@ -8,7 +8,7 @@ const Comments = ({ slug }) => {
 
   useEffect(() => {
     getComments(slug).then((result) => setComments(result));
-  }, []);
+  }, [slug]);
 
   return (
     <>
@@ -18,11 +18,8 @@ const Comments = ({ slug }) => {
             {comments.length}
             {comments.length == 1 ? ' Comment' : ' Comments'}
           </h3>
-          {comments.map(({createdAt,name,comment}) => (
-            <div
-              key={createdAt}
-              className='border-b border-gray-100 mb-4 pb-4'
-            >
+          {comments.map(({ createdAt, name, comment }) => (
+            <div key={createdAt} className='border-b border-gray-100 mb-4 pb-4'>
               <p className='mb-4'>
                 <span className='font-semibold'>{name}</span>
                 {' on '}
