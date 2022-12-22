@@ -1,20 +1,20 @@
-import React from 'react';
-import Image from 'next/image';
-import moment from 'moment';
+import React from 'react'
+import Image from 'next/image'
+import moment from 'moment'
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
-    let modifiedText = text;
+    let modifiedText = text
 
     if (obj) {
       if (obj.bold) {
-        modifiedText = <b key={index}>{text}</b>;
+        modifiedText = <b key={index}>{text}</b>
       }
       if (obj.italic) {
-        modifiedText = <em key={index}>{text}</em>;
+        modifiedText = <em key={index}>{text}</em>
       }
       if (obj.underline) {
-        modifiedText = <u key={index}>{text}</u>;
+        modifiedText = <u key={index}>{text}</u>
       }
     }
 
@@ -26,7 +26,7 @@ const PostDetail = ({ post }) => {
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </h3>
-        );
+        )
       case 'paragraph':
         return (
           <p key={index} className='mb-8'>
@@ -34,7 +34,7 @@ const PostDetail = ({ post }) => {
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </p>
-        );
+        )
       case 'heading-four':
         return (
           <h4 key={index} className='text-md font-semibold mb-4'>
@@ -42,7 +42,7 @@ const PostDetail = ({ post }) => {
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </h4>
-        );
+        )
       case 'image':
         return (
           <Image
@@ -52,11 +52,11 @@ const PostDetail = ({ post }) => {
             width={obj.width}
             src={obj.src}
           />
-        );
+        )
       default:
-        return modifiedText;
+        return modifiedText
     }
-  };
+  }
 
   return (
     <div className='bg-gray-900 opacity-80 shadow-lg rounded-lg lg:p-8 pb-12 mb-8'>
@@ -64,7 +64,7 @@ const PostDetail = ({ post }) => {
         <Image
           src={post.featuredImage.url}
           alt={post.title}
-          className='object-top h-full w-full rounded-t-lg'
+          className='object-top object-cover rounded-t-lg'
           height={1900}
           width={1900}
         />
@@ -109,12 +109,12 @@ const PostDetail = ({ post }) => {
         {post.content.raw.children.map((typeObj, index) => {
           const children = typeObj.children.map((item, itemIndex) =>
             getContentFragment(itemIndex, item.text, item)
-          );
-          return getContentFragment(index, children, typeObj, typeObj.type);
+          )
+          return getContentFragment(index, children, typeObj, typeObj.type)
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PostDetail;
+export default PostDetail

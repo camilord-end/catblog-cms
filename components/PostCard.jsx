@@ -1,7 +1,7 @@
-import React from 'react';
-import moment from 'moment';
-import Link from 'next/link';
-import Image from 'next/image';
+import React from 'react'
+import moment from 'moment'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const PostCard = ({ post }) => {
   return (
@@ -11,7 +11,7 @@ const PostCard = ({ post }) => {
           priority
           src={post.featuredImage.url}
           alt={post.title}
-          className='object-center absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg'
+          className='object-center absolute w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg'
           layout='fill'
         />
       </div>
@@ -63,7 +63,7 @@ const PostCard = ({ post }) => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PostCard;
+export default PostCard
